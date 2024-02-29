@@ -1,4 +1,4 @@
-# Este programa lo que hará será traducir epañol a morse y viceversa
+# Este programa traducirá epañol a morse 
 # Autor: Diego "Yeyo" Quiñones Montecinos
 
 # Importamos las librerías necesarias
@@ -27,9 +27,6 @@ def traducir_a_morse(user_string):
         else:
             morse_string += char + " "
     return morse_string.strip()
-
-# importamos la librería de sonido
-
 
 # función para convertir el morse a sonidos
 def morse_a_sonido(morse_string):
