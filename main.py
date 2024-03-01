@@ -40,11 +40,6 @@ def morse_a_sonido(morse_string):
         else:
             pass
 
-# Creamos una interfaz para que el usuario pueda interactuar con el programa
-# Creamos la ventana
-ventana = Tk()
-ventana.title("Traductor de Español a Morse")
-
 def traducir():
     texto = entrada_usuario.get("1.0", "end-1c")  # Obtiene el texto del usuario
     morse = traducir_a_morse(texto)  # Utiliza tu función existente
@@ -58,9 +53,10 @@ def reproducir_sonido():
 
 ventana = Tk()
 ventana.title("Yeyo's Español a Morse")
+ventana.geometry("500x300")
 
 # Etiqueta de entrada
-etiqueta_entrada = Label(ventana, text="Ingrese su texto aquí:")
+etiqueta_entrada = Label(ventana, text="Español a morse", font= 'Calibri 24 bold')
 etiqueta_entrada.pack()
 
 # Campo de entrada del usuario
