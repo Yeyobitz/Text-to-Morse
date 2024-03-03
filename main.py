@@ -1,13 +1,11 @@
-# Este programa traducirá epañol a morse 
+# Este programa traducirá texto a morse 
 # Autor: Diego "Yeyo" Quiñones Montecinos
 
-# Importamos las librerías necesarias
 import winsound
 import time
 from tkinter import *
 
-# Diccionario de traducción
-español_a_morse = {
+texto_a_morse = {
     'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
     'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
     'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--', 'Z': '--..',
@@ -17,18 +15,15 @@ español_a_morse = {
     '&': '.-...', ':': '---...', ';': '-.-.-.', '=': '-...-', '+': '.-.-.', '-': '-....-', '_': '..--.-', '"': '.-..-.',
     '$': '...-..-', '@': '.--.-.', '¿': '..-.-', '¡': '--...-', ' ': '/'
 }
-
-# Función para traducir el texto
 def traducir_a_morse(user_string):
     morse_string = ""
     for char in user_string:
-        if char.upper() in español_a_morse:
-            morse_string += español_a_morse[char.upper()] + " "
+        if char.upper() in texto_a_morse:
+            morse_string += texto_a_morse[char.upper()] + " "
         else:
             morse_string += char + " "
     return morse_string.strip()
 
-# función para convertir el morse a sonidos
 def morse_a_sonido(morse_string):
     for char in morse_string:
         if char == ".":
@@ -41,22 +36,21 @@ def morse_a_sonido(morse_string):
             pass
 
 def traducir():
-    texto = entrada_usuario.get("1.0", "end-1c")  # Obtiene el texto del usuario
-    morse = traducir_a_morse(texto)  # Utiliza tu función existente
-    salida_morse.delete("1.0", "end")  # Limpia el área de salida
-    salida_morse.insert("end", morse)  # Muestra el Morse en el área de salida
+    texto = entrada_usuario.get("1.0", "end-1c")  
+    morse = traducir_a_morse(texto) 
+    salida_morse.delete("1.0", "end")
+    salida_morse.insert("end", morse) 
 
-# Función para reproducir el Morse como sonido
 def reproducir_sonido():
-    morse = salida_morse.get("1.0", "end-1c")  # Obtiene el Morse del área de salida
-    morse_a_sonido(morse)  # Utiliza tu función existente
+    morse = salida_morse.get("1.0", "end-1c") 
+    morse_a_sonido(morse) 
 
 ventana = Tk()
-ventana.title("Yeyo's Español a Morse")
+ventana.title("Yeyo's texto a Morse")
 ventana.geometry("500x300")
 
 # Etiqueta de entrada
-etiqueta_entrada = Label(ventana, text="Español a morse", font= 'Calibri 24 bold')
+etiqueta_entrada = Label(ventana, text="texto a morse", font= 'Calibri 24 bold')
 etiqueta_entrada.pack()
 
 # Campo de entrada del usuario
